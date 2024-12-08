@@ -92,30 +92,7 @@ function withReport(
         ...params,
       };
       trackEvent("download_qrcode", dataToReport);
-      // WebKit bug: https://bugs.webkit.org/show_bug.cgi?id=270102
-      // Promise.all([
-      //   http("/api/update_count", {
-      //     method: "POST",
-      //     body: JSON.stringify({
-      //       collection_name: "counter_style",
-      //       name: name,
-      //     }),
-      //   }),
-      //   http("/api/update_count", {
-      //     method: "POST",
-      //     body: JSON.stringify({
-      //       collection_name: "counter_global",
-      //       name: "download_count",
-      //     }),
-      //   }),
-      //   http("/api/user/stat/inc_download_count", {
-      //     method: "POST",
-      //   }),
-      //   http("/api/user/stat/log_qrcode", {
-      //     method: "POST",
-      //     body: JSON.stringify(dataToReport),
-      //   }),
-      // ]).finally(() => origin(options));
+      origin(options);
     };
   }
   return downloaders;
