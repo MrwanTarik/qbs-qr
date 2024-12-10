@@ -29,25 +29,5 @@ export default function LocaleSwitcherSelect({
     });
   }
 
-  return (
-    <label
-      className={clsx(
-        "relative flex items-center",
-        isPending && "transition-opacity [&:disabled]:opacity-30",
-      )}
-    >
-      <p className="sr-only">{label}</p>
-      <select
-        className="inline-flex appearance-none bg-transparent"
-        defaultValue={defaultValue}
-        disabled={isPending}
-        onChange={onSelectChange}
-      >
-        {children}
-      </select>
-      <div>
-        <ChevronUpDownIcon className="w-4 h-4" />
-      </div>
-    </label>
-  );
+  return <></>;
 }

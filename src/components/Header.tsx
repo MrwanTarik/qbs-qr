@@ -13,7 +13,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { transitionXl, transitionMd, transitionLg } from "@/lib/animations";
-import { QrbtfLogo } from "@/components/Logos";
+
 import { Container } from "@/components/Containers";
 import { UserButton } from "@/components/UserButton";
 
@@ -63,7 +63,7 @@ function Logo() {
           className="px-2 -mx-2 flex h-14 items-center"
           onClick={() => setMenuOpen(false)}
         >
-          <QrbtfLogo className="h-7" />
+          <img src="/assets/images/QBS-Logo.svg" className="h-12" />
         </TrackLink>
       </motion.div>
     </div>
@@ -84,7 +84,7 @@ export function HeroLogo() {
         }}
         transition={transitionMd}
       >
-        <QrbtfLogo className="h-12 lg:h-14" />
+        <img src="/assets/images/QBS-Logo.svg" className="h-12" />
       </motion.div>
     </div>
   );
@@ -128,81 +128,7 @@ function MobileNavigation(
   const [menuOpen, setMenuOpen] = useAtom(menuOpenAtom);
   const isTop = useAtomValue(scrollTopAtom);
 
-  return (
-    <>
-      <div
-        className={clsx(
-          "fixed top-0 z-20 w-full bg-background h-14 flex md:hidden items-center justify-between px-6 _lg:px-12 break-words",
-          props.className,
-        )}
-      >
-        <Logo />
-        <div className="flex items-center">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => {
-              trackEvent("toggle_menu", { to: !menuOpen });
-              setMenuOpen(!menuOpen);
-            }}
-          >
-            {!menuOpen ? (
-              <Bars3Icon className="h-6 w-6 stroke-foreground" />
-            ) : (
-              <XMarkIcon className="h-6 w-6 text-foreground" />
-            )}
-          </Button>
-          <div className="w-3"></div>
-          <UserButton />
-        </div>
-        <BorderBottom />
-      </div>
-      <div className="lg:hidden">
-        <motion.div
-          className={clsx(
-            "fixed z-10 w-full top-0 left-0 bg-background overflow-hidden",
-            // menuOpen ? "block" : "hidden",
-          )}
-          initial={{
-            height: 56,
-            opacity: 0,
-          }}
-          animate={{
-            height: menuOpen ? "100%" : 56,
-            opacity: menuOpen ? 1 : 0,
-          }}
-          transition={transitionLg}
-        >
-          <div className={clsx("w-full h-screen top-0 left-0 flex flex-col")}>
-            <HeaderPadding />
-            <motion.div
-              className="grow relative"
-              animate={{
-                y: menuOpen ? 0 : -20,
-                // opacity: menuOpen ? 1 : 0,
-              }}
-              transition={transitionLg}
-            >
-              <div className="absolute w-full h-full top-0 left-0 overflow-y-auto px-6 lg:px-12 py-6">
-                <nav className="">
-                  <ul className="_-my-2 text-base text-zinc-800 dark:text-zinc-200">
-                    {props.links.map((item, index) => (
-                      <MobileNavItem
-                        key={"mobile_nav_" + index}
-                        {...item}
-                        onClick={() => setMenuOpen(false)}
-                      ></MobileNavItem>
-                    ))}
-                  </ul>
-                </nav>
-                <div className="h-6" />
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
-      </div>
-    </>
-  );
+  return <></>;
 }
 
 function NavItem(props: HeaderLinkProps) {

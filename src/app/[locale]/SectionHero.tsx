@@ -28,7 +28,7 @@ export function SectionHero() {
   const t = useTranslations("index.hero");
 
   return (
-    <div className="_mt-28 _lg: mt-36">
+    <div className="mt-10 lg:mt-16">
       <Container>
         <div>
           <h1 className="text-4xl lg:text-5xl font-bold hidden">
@@ -36,43 +36,6 @@ export function SectionHero() {
           </h1>
 
           <HeroLogo />
-
-          <p className="text-base lg:text-lg mt-6 text-foreground/70">
-            {t("subtitle")}
-            {t("by")}
-            <TrackLink
-              trackValue={["latent_cat", "hero"]}
-              href="https://latentcat.com"
-              target="_blank"
-              className="text-foreground underline font-semibold"
-            >
-              Latent Cat
-            </TrackLink>
-            {t("period")}
-          </p>
-
-          <div className="mt-6 flex gap-3">
-            <TrackLink
-              trackValue={["join_discord", "hero"]}
-              href="https://discord.gg/V9CNuqYfte"
-              target="_blank"
-            >
-              <Button size="sm" variant="secondary">
-                <FontAwesomeIcon
-                  icon={faDiscord}
-                  className={cn("h-5 w-5 block mr-2")}
-                />
-                {t("join_discord")}
-              </Button>
-            </TrackLink>
-            <TrackLink
-              trackValue={["github", "hero"]}
-              href="https://github.com/latentcat/qrbtf"
-              target="_blank"
-            >
-              <GitHubButton />
-            </TrackLink>
-          </div>
 
           <SplitView className="gap-y-0">
             <SplitLeft>

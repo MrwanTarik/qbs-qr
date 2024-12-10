@@ -28,16 +28,7 @@ export default function RootLayout({
       {children}
       <Container>
         <SplitView className="gap-x-9 gap-y-12 mt-12">
-          <SplitLeft className="flex flex-col gap-12">
-            <SectionStatus />
-            <SectionQA />
-            <SectionRefs />
-            <SectionTeam />
-            <SectionSponsor />
-          </SplitLeft>
-          <SplitRight>
-            <SectionChangelog />
-          </SplitRight>
+          <SplitLeft className="flex flex-col gap-12"></SplitLeft>
         </SplitView>
       </Container>
     </div>
