@@ -16,6 +16,9 @@ const config = {
       },
     },
     extend: {
+      backgroundImage: {
+        "qbs-logo": "url('/assets/images/QBS-Logo.svg')",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
