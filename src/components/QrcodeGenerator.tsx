@@ -212,14 +212,14 @@ export function QrcodeGenerator<P extends {}>(props: QrcodeGeneratorProps<P>) {
                   </DropdownMenu>
                 </Label>
                 <div className="relative border rounded-xl bg-accent/30 w-full overflow-hidden">
-                  <div className="bg-white w-[50px] h-[50px] absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] z-10 bg-no-repeat rounded-[4px]">
+                  {/* <div className="bg-white w-[50px] h-[50px] absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] z-10 bg-no-repeat rounded-[4px]">
                     <Image
                       className=""
                       src="/assets/images/linkedin-icon.svg"
                       alt="QBS Logo"
                       fill
                     />
-                  </div>
+                  </div> */}
                   <AspectRatio ratio={1} />
                   <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
                     {/*<QrCodeIcon className="w-12 h-12 opacity-20" />*/}
