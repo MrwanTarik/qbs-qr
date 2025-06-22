@@ -6,6 +6,7 @@ export interface QrStyleItemProps {
 }
 
 export const qrStyleList: QrStyleItemProps[] = [
+  //
   {
     id: "a1",
     image: "a1.svg",
