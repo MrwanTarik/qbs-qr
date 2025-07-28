@@ -26,7 +26,7 @@ import { Loader2, LucideDownload } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { StyleTitle } from "@/components/Titles";
 import { useAtomValue } from "jotai";
-import { urlAtom } from "@/lib/states";
+import { qrContentAtom } from "@/lib/states";
 import { downloaderMaps } from "@/lib/downloader";
 import {
   DropdownMenu,
@@ -58,7 +58,7 @@ export interface QrcodeGeneratorProps<P extends {}>
 
 export function QrcodeGenerator<P extends {}>(props: QrcodeGeneratorProps<P>) {
   const t = useTranslations("index.params");
-  const url = useAtomValue(urlAtom);
+  const qrContent = useAtomValue(qrContentAtom);
   const { onSubmit, currentReq, resData } = useImageService(
     props.qrcodeModule.type === "api_fetcher"
       ? props.qrcodeModule.fetcher
@@ -232,7 +232,7 @@ export function QrcodeGenerator<P extends {}>(props: QrcodeGeneratorProps<P>) {
                       <>
                         {props.qrcodeModule.renderer({
                           className: "w-full bg-white",
-                          url: url || "https://qrbtf.com",
+                          url: qrContent,
                           ...componentProps,
                         })}
                       </>

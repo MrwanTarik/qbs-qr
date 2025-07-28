@@ -3,7 +3,7 @@ import { safeParseJSON } from "@/lib/json_handler";
 import { toast } from "sonner";
 import { useEffect, useState } from "react";
 import { useAtomValue } from "jotai/index";
-import { urlAtom } from "@/lib/states";
+import { qrContentAtom } from "@/lib/states";
 import { trackEvent } from "@/components/TrackComponents";
 import { ApiFetcher } from "./qrbtf_lib/qrcodes/param";
 import { http } from "./network";
@@ -76,7 +76,7 @@ export function useImageService<P extends object>(
 ) {
   const [currentReq, setCurrentReq] = useState<P | null>(null);
   const [resData, setResData] = useState<any | null>(null);
-  const url = useAtomValue(urlAtom) || "https://qrbtf.com";
+  const qrContent = useAtomValue(qrContentAtom);
 
   function onSubmit(values: P) {
     // trackEvent('gen_qrcode', { is_login: !isLogout, ...values });
@@ -124,7 +124,7 @@ export function useImageService<P extends object>(
         //   return;
         // }
 
-        const data = { url, ...currentReq };
+        const data = { url: qrContent, ...currentReq };
         trackEvent("submit_fetcher", data);
 
         // 类似 Python 中的 async for，rep 返回格式为 zod 导出的 ImageResponse，都在 image_service.ts 中定义，必须严格校验返回格式类型，不通过会报错
@@ -148,7 +148,7 @@ export function useImageService<P extends object>(
     return () => {
       abortController.abort();
     };
-  }, [currentReq, fetcher, url]);
+  }, [currentReq, fetcher, qrContent]);
 
   return {
     onSubmit,

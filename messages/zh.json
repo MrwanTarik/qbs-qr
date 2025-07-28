@@ -366,6 +366,6 @@
     }
   },
   "qrcode_placeholder": {
-    "todo": "网站尚未完成迁移，请访问 <QrbtfClassic>classic.qrbtf.com</QrbtfClassic> 生成此样式的二维码。"
+    "todo": "网站尚未完成迁移，请访问 <QrbtfClassic>qr-dun-xi.vercel.app</QrbtfClassic> 生成此样式的二维码。"
   }
 }

@@ -368,6 +368,6 @@
     }
   },
   "qrcode_placeholder": {
-    "todo": "The website migration has not been completed, please visit <QrbtfClassic>classic.qrbtf.com</QrbtfClassic> to generate the QR code of this style."
+    "todo": "The website migration has not been completed, please visit <QrbtfClassic>qr-dun-xi.vercel.app</QrbtfClassic> to generate the QR code of this style."
   }
 }
