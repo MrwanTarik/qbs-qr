@@ -81,11 +81,36 @@ export function FileUpload({
       try {
         const base64Data = await fileToBase64(file);
 
+        // Generate a unique file ID
+        const fileId = `file_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+
+        // Upload to Vercel Blob storage
+        const uploadResponse = await fetch("/api/store-file", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            fileId,
+            name: file.name,
+            type: file.type,
+            data: base64Data,
+          }),
+        });
+
+        if (!uploadResponse.ok) {
+          throw new Error("Failed to upload file to storage");
+        }
+
+        const uploadResult = await uploadResponse.json();
+
         setFileData({
           name: file.name,
           type: file.type,
           size: file.size,
           data: base64Data,
+          fileId: fileId,
+          fileUrl: uploadResult.url, // Store the Vercel Blob URL
         });
 
         // Different messaging based on file size and type

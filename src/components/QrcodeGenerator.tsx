@@ -59,6 +59,12 @@ export interface QrcodeGeneratorProps<P extends {}>
 export function QrcodeGenerator<P extends {}>(props: QrcodeGeneratorProps<P>) {
   const t = useTranslations("index.params");
   const qrContent = useAtomValue(qrContentAtom);
+
+  // Debug: Log the QR content
+  console.log("🔍 QR Content:", qrContent);
+  console.log("🔍 QR Content Length:", qrContent?.length);
+  console.log("🔍 QR Content Type:", typeof qrContent);
+
   const { onSubmit, currentReq, resData } = useImageService(
     props.qrcodeModule.type === "api_fetcher"
       ? props.qrcodeModule.fetcher
