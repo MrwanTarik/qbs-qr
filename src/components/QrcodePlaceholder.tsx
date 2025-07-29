@@ -16,7 +16,7 @@ export function QrcodePlaceholder() {
                 QrbtfClassic: (chunk: ReactNode) => (
                   <TrackLink
                     trackValue="style_to_classic"
-                    href="https://qr-dun-xi.vercel.app"
+                    href="https://qbs-qr-test.vercel.app"
                     target="_blank"
                     className="underline"
                   >

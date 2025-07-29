@@ -78,12 +78,13 @@ export function ContentSelector() {
           <div className="space-y-2">
             <Label className="text-sm font-medium">Upload Document</Label>
             <p className="text-xs text-muted-foreground mb-2">
-              💡 Upload documents up to 10MB. The QR code will contain a URL to
-              access your document.
+              💡 Upload documents up to 10MB. Supports PDF, Word, Excel,
+              PowerPoint, Text files, and more. The QR code will contain a URL
+              to access your document.
             </p>
             <FileUpload
               fileType="document"
-              accept=".pdf,.doc,.docx,.txt,.rtf"
+              accept=".pdf,.doc,.docx,.txt,.rtf,.xls,.xlsx,.ppt,.pptx,.odt,.ods,.odp,.csv,.md,.json,.xml,.html,.epub,.pages,.numbers,.key"
               maxSize={10 * 1024 * 1024} // 10MB
               placeholder="Click to upload a document or drag and drop"
             />
